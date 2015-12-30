@@ -6,6 +6,17 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('widgets', function() {
+    this.route('new');
+
+    this.route('edit', {
+      path: ':widget_id/edit'
+    });
+
+    this.route('show', {
+      path: ':widget_id'
+    });
+  });
 });
 
 export default Router;

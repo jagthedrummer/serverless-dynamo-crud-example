@@ -1,0 +1,54 @@
+<h1>Widgets list</h1>
+
+<p>
+  {{link-to "New Widget" "widgets.new" }}
+</p>
+
+{{#if model.length}}
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Sku
+        </th>
+        <th>
+          Title
+        </th>
+        <th>
+          Description
+        </th>
+        <th colspan="3">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |widget|}}
+        <tr>
+          <td>
+            {{widget.sku}}
+          </td>
+          <td>
+            {{widget.title}}
+          </td>
+          <td>
+            {{widget.description}}
+          </td>
+          <td>
+            {{link-to "Edit" "widgets.edit" widget}}
+          </td>
+          <td>
+            {{link-to "Show" "widgets.show" widget}}
+          </td>
+          <td>
+            <a href="#" {{action "remove" widget}}>Remove</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p id="blankslate">
+    No Widgets found
+  </p>
+{{/if}}
